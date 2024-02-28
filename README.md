@@ -7,7 +7,7 @@ Assignment from The Odin Project to create a ToDo List App
 
 ## Visit the page
 
-
+[Live](https://renrom.github.io/todo)
 
 ## Features
 
