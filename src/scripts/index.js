@@ -84,9 +84,14 @@ class ProjectsCollection {
     }
 }
 
+
+
 const todoItemCollection = new TodoItemCollection();
 const projectsCollection = new ProjectsCollection();
-const getAllProjects = loadProjects();
+
+//projectsCollection.addItem('Default', 1);
+
+let getAllProjects = loadProjects();
 
 if (getAllProjects === null) {
     console.log('no projects. have to create a default')
@@ -117,7 +122,9 @@ saveProjectItems(projectsCollection);
 
 loadToDoItems = loadToDoItems();
 
-if (typeof loadToDoItems === "object") {
+console.log (loadToDoItems);
+
+if (loadToDoItems !== null) {
 
     loadToDoItems.items.forEach((todo) => {
         todoItemCollection.addItem(todo.title, todo.description, todo.duedate, todo.priority, todo.notes, todo.finished, todo.projectid, todo.todoid);
