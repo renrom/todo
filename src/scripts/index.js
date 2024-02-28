@@ -1,12 +1,12 @@
 import { format } from "date-fns";
 import '../css/styles.css';
 import loadToDoItems from './loadtodo.js'
-import {loadProjects} from "./loadprojects.js";
+import { loadProjects } from "./loadprojects.js";
 import saveProjectItems from './saveprojects.js';
-import {TodoItem, TodoItemCollection} from './todoitem.js';
+import { TodoItem, TodoItemCollection } from './todoitem.js';
 
 
-import { leftPanelAvatar, leftPanelTodo, leftPanelProject,leftPanelTodoMenu, leftPanelProjects  } from "./leftpanel.js";
+import { leftPanelAvatar, leftPanelTodo, leftPanelProject, leftPanelTodoMenu, leftPanelProjects } from "./leftpanel.js";
 
 /*
 class TodoItem {
@@ -74,8 +74,8 @@ class ProjectsCollection {
     removeItem(id) {
 
         if (Array.isArray(this.items)) {
-            if (!todoItemCollection.checkProjectId(id)) { 
-            this.items = this.items.filter(i => i.projectid !== id);
+            if (!todoItemCollection.checkProjectId(id)) {
+                this.items = this.items.filter(i => i.projectid !== id);
             }
             else {
                 console.log("There is still a todo")
@@ -90,15 +90,15 @@ const getAllProjects = loadProjects();
 
 if (getAllProjects === null) {
     console.log('no projects. have to create a default')
-    projectsCollection.addItem('Default',1);  
+    projectsCollection.addItem('Default', 1);
     saveProjectItems(projectsCollection);
 
 } else {
-    
+
     getAllProjects.items.forEach((projects) => {
         projectsCollection.addItem(projects.description, projects.projectid);
     });
-    
+
 
 }
 
@@ -117,9 +117,13 @@ saveProjectItems(projectsCollection);
 
 loadToDoItems = loadToDoItems();
 
-loadToDoItems.items.forEach((todo) => {
-    todoItemCollection.addItem(todo.title, todo.description, todo.duedate, todo.priority, todo.notes, todo.finished, todo.projectid, todo.todoid);
-});
+if (typeof loadToDoItems === "object") {
+
+    loadToDoItems.items.forEach((todo) => {
+        todoItemCollection.addItem(todo.title, todo.description, todo.duedate, todo.priority, todo.notes, todo.finished, todo.projectid, todo.todoid);
+    });
+
+}
 
 
 leftPanelAvatar();
