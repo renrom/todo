@@ -7,6 +7,10 @@ let todoItems = new AllTodoItems;
 
 export default function todoHandler(whattodo) {
 
+    if (whattodo === 'addproject') {
+
+        alert('lets add a project');
+    }
 
     if (whattodo === 'addtodo') {
         const saveTodo = document.querySelector('#savetodo');
@@ -30,10 +34,16 @@ export default function todoHandler(whattodo) {
             selectproject.add(newproject);
         });
 
+        var today = new Date();
+        document.querySelector("#duedate").value = new Date().toISOString().substring(0, 10);
+
+
+
         dialog.showModal();
 
         saveTodo.addEventListener("click", function (e) {
             e.preventDefault();
+
 
             const todoTitle = document.querySelector("#title").value
             const todoDescription = document.querySelector("#description").value
@@ -47,17 +57,17 @@ export default function todoHandler(whattodo) {
             }
             const todoProject = document.querySelector("#project").value
 
+
+            if (todoTitle === '') {
+                alert('Please add at least a title')
+            } else {
+
+            
             const newtodo = new TodoItem(todoTitle, todoDescription, todoDueDate, todoPrio, "notes", false, todoProject, 1);
 
             todoItems.addItem(newtodo, allItems);
-
-
-
             dialog.close();
-
-
-
-
+            }
         });
 
         cancelTodo.addEventListener("click", (e) => {

@@ -238,6 +238,17 @@ table {
 
 }
 
+.lp-header {
+	display: flex;
+	align-items: center;
+}
+
+.lp-btn {
+	border: 0;
+	background-color: var(--backgroundcolor-leftpanel);
+	cursor: pointer;
+}
+
 .btn-container:hover,
 .btn-projects:hover {
 	background-color: #b4b4e4;
@@ -248,14 +259,17 @@ table {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	gap: 10px;
+	gap: 15px;
 }
 
+#description {
+	font-size: 1rem;
+}
 .dialog-header {
 	text-align: center;
 	font-size: 1.4rem;
 	font-weight: 600;
-
+    color: #000053;
 	margin-bottom: 20px;
 }
 
@@ -263,13 +277,9 @@ table {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-
+	
 }
 
-.dialog-row>label {
-	width: 100px;
-
-}
 
 .dialog-btn {
 	padding-top: 20px;
@@ -278,13 +288,13 @@ table {
 	gap: 5px;
 }
 
-
 #addtodo {
 	border-radius: 15px;
 	box-shadow: 10px 10px 15px -10px rgba(0, 0, 0, 0.75);
-	border-color: rgb(4, 4, 68);
+	border-color: 000053;
 	margin-left: 30%;
 	margin-top: 10%;
+	width: 350px;
 	position: absolute;
 }
 
@@ -296,7 +306,6 @@ table {
 #savetodo {
 	background-color: green;
 	color: lightcyan;
-
 }
 
 .dialog-btn>button {
@@ -304,13 +313,72 @@ table {
 	border: 0;
 	padding: 10px 20px 10px 20px;
 	cursor: pointer;
-	font-size: 0.8rem;
+	font-size: 1rem;
 	font-weight: 600;
 	border-radius: 6px;
 	transition-duration: 0.5s;
 }
 
 .dialog-btn>button:hover {
-	box-shadow: 0 12px 16px 0 rgba(71, 71, 71, 0.24),0 17px 30px 0 rgba(0,0,0,0.19);
+	box-shadow: 0 12px 16px 0 rgba(71, 71, 71, 0.24), 0 17px 30px 0 rgba(0, 0, 0, 0.19);
+}
+
+.prio {
+	direction: rtl;
+
+}
+
+.prio > label, .prio > input {
+	cursor: pointer;
+	
+}
+
+.dialog-row > input, 
+.prio-row
+ {
+	border-radius: 10px;
+	background-color: #f0f0e7;
+	border: 0;
+	padding: 10px;
+	width: 100%;
+	
+ }
+
+ .project-row {
+	display: flex;
+	justify-content: space-between;
+	border: 1px solid red;
+	border-radius: 10px;
+	background-color: #f0f0e7;
+	border: 0;
+	padding: 10px;
+
+ }
+
+#project {
+	border: 0;
+	background-color: white;
+	border-radius: 5px;
+	font-size: 1rem;
+	padding: 10px;
+}
+
+ fieldset {
+	width: 100%;
+	margin-right: 20px;
+ }
+.prio-row {
+	display: flex;
+	padding: 10px;
+	justify-content: space-between;
+}
+
+#title {
+	font-size: 1.5rem;
+	border-radius: 10px;
+	background-color: #f0f0e7;
+	border: 0;
+	padding: 10px;
+
 }
 

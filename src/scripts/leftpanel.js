@@ -41,12 +41,27 @@ export class leftPanel {
         const leftPanelHeaderText = document.createElement('h1');
         const leftPanelHorizontalRule = document.createElement('hr');
 
-        leftPanelHeaderText.textContent = "Projects for You"
-        leftPanelProject.appendChild(leftPanelHeaderText);
+        leftPanelHeaderText.textContent = "Projects for You";
+
+        const lpdiv = document.createElement('div');
+        const lpbtn = document.createElement('button');
+        const lpbtnimg = document.createElement('img');
+        lpbtn.className = 'lp-btn';
+        lpbtnimg.src = AddTodo;
+
+        lpdiv.className = 'lp-header'
+        lpbtn.appendChild(lpbtnimg);
+        lpdiv.appendChild(leftPanelHeaderText);
+        lpdiv.appendChild(lpbtn);
+
+        leftPanelProject.appendChild(lpdiv);
         leftPanelProject.appendChild(leftPanelHorizontalRule);
 
-
+        lpbtn.addEventListener('click', function () {
+            todoHandler("addproject")
+        })
     }
+    
     leftPanelTodoMenu() {
 
         addButton('addtodo   btn-container', 'btn-wrapper', 'btn-image', 'Add ToDo', AddTodo)
@@ -80,18 +95,18 @@ export class leftPanel {
 
     leftPanelProjects(projects) {
         projects.forEach((projects) => {
-    
+
             addProject('btn-projects', projects.description);
-            
+
         });
 
         function addProject(btnClass, btnText) {
             let leftPanelProjects = document.querySelector('#lc-projectpanel-menu');
             let leftButton = document.createElement('button');
-        
+
             leftButton.className = btnClass;
             leftButton.innerText = btnText;
-        
+
             leftPanelProjects.appendChild(leftButton)
         }
     }
