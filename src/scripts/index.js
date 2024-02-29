@@ -2,7 +2,7 @@ import { AllTodoItems, TodoItem } from './todo.js';
 import { AllProjectsItems, ProjectItem } from './project.js';
 import { leftPanel, leftPanelAvatar } from './leftpanel.js';
 import '../css/styles.css';
-
+import todoHandler from './todohandler.js';
 
 let todoItems = new AllTodoItems;
 let allItems = todoItems.loadToDoItems();
@@ -16,12 +16,6 @@ if (allProjects === null) {
     allProjects = [];
     let newProject = new ProjectItem("Default", 1);
     projectItems.addItem(newProject, allProjects);
-}
-
-// If there are no ToDo's, then make an empty array
-
-if (allItems === null) {
-    allItems = []
 }
 
 // Just for debugging
@@ -59,5 +53,7 @@ drawleftpanel.leftPanelTodo();
 drawleftpanel.leftPanelProject();
 drawleftpanel.leftPanelTodoMenu();
 drawleftpanel.leftPanelProjects(allProjects);
+
+
 
 

@@ -195,8 +195,9 @@ table {
 
 .lc-header {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	gap: 10px;
+	gap: 20px;
 }
 
 .right-container {
@@ -255,17 +256,22 @@ table {
 	border-radius: 5px;
 }
 
-.formlayout {
+.formlayout,
+.addproject {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	gap: 15px;
 }
 
-#description {
+#description,
+#projectname,
+#editprojectname {
 	font-size: 1rem;
 }
-.dialog-header {
+.dialog-header,
+.dialog-project-header 
+ {
 	text-align: center;
 	font-size: 1.4rem;
 	font-weight: 600;
@@ -280,15 +286,28 @@ table {
 	
 }
 
+.dialog-edit-bottom {
+	
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.delete-project {
+	padding-top: 20px;
+}
 
 .dialog-btn {
-	padding-top: 20px;
+
 	display: flex;
+	padding-top: 20px;
 	justify-content: flex-end;
 	gap: 5px;
 }
 
-#addtodo {
+#addtodo,
+#addproject,
+#editproject {
 	border-radius: 15px;
 	box-shadow: 10px 10px 15px -10px rgba(0, 0, 0, 0.75);
 	border-color: 000053;
@@ -298,12 +317,16 @@ table {
 	position: absolute;
 }
 
-#canceltodo {
+#canceltodo,
+#cancelproject,
+#canceleditproject {
 	background-color: rgb(233, 228, 228);
 	color: lightslategrey
 }
 
-#savetodo {
+#savetodo,
+#saveproject,
+#saveeditproject {
 	background-color: green;
 	color: lightcyan;
 }

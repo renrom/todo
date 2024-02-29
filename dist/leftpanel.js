@@ -55,10 +55,11 @@ export class leftPanel {
         leftPanelProject.appendChild(lpdiv);
         leftPanelProject.appendChild(leftPanelHorizontalRule);
 
-        lpbtn.addEventListener('click', function () {
-            todoHandler("addproject")
-        })
+        //lpbtn.addEventListener('click', function () {
+        //    todoHandler("addproject")
+        //})
     }
+
 
     leftPanelTodoMenu() {
 
@@ -97,23 +98,23 @@ export class leftPanel {
 
         projects.forEach((projects) => {
 
-            addProject('btn-projects', projects.description, projects.projectid, projects.description);
+            addProject('btn-projects', projects.description, projects.projectid);
 
         });
 
-        function addProject(btnClass, btnText, projectid, projectname) {
+        function addProject(btnClass, btnText) {
             let leftPanelProjects = document.querySelector('#lc-projectpanel-menu');
             let leftButton = document.createElement('button');
 
             leftButton.className = btnClass;
             leftButton.innerText = btnText;
-
+/*
             leftButton.addEventListener("click", function (e) {
                 e.preventDefault();
 
-                todoHandler("editproject", projectid, projectname)
+                todoHandler("editproject", projectid)
             })
-
+*/
             leftPanelProjects.appendChild(leftButton)
         }
     }

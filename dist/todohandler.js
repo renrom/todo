@@ -2,67 +2,49 @@
 import { AllProjectsItems, ProjectItem } from './project.js';
 import { AllTodoItems, TodoItem } from './todo.js';
 import { leftPanel, leftPanelAvatar } from './leftpanel.js';
-import DeleteIcon from '../assets/delete.svg';
+
 
 let projectItems = new AllProjectsItems;
 let todoItems = new AllTodoItems;
 
-export default function todoHandler(whattodo, projectid, projectname) {
+export default function todoHandler(whattodo) {
 
-    if (whattodo === 'editproject') {
+    console.log('todohandler');
 
-        const saveProject = document.querySelector('#saveproject');
-        const cancelProject = document.querySelector('#cancelproject');
-        const dialog = document.querySelector("#editproject");
-        const allProjects = projectItems.loadProjects();
-
-        const imageholder = document.querySelector('.delete-project');
-        const imagedelete = document.createElement('img')
-        imageholder.innerHTML = '';
-        imagedelete.src = DeleteIcon;
-
-        imagedelete.style.height = '30px';
-        imagedelete.style.cursor = 'pointer';
-        imageholder.appendChild(imagedelete);
-
-        document.querySelector('#editprojectname').value = projectname
-
-        dialog.showModal();
-
-    }
-
-
+    let counter = 0;
     if (whattodo === 'addproject') {
-
+        
         const saveProject = document.querySelector('#saveproject');
         const cancelProject = document.querySelector('#cancelproject');
         const dialog = document.querySelector("#addproject");
         const allProjects = projectItems.loadProjects();
         dialog.showModal();
 
-
+        counter++;
         saveProject.addEventListener("click", function (e) {
             e.preventDefault();
 
 
+            console.log('blalbabla');
+
             const projectName = document.querySelector("#projectname").value
-            document.querySelector("#projectname").value = '';
             let drawleftpanel = new leftPanel;
             let newProject = new ProjectItem(projectName, 3);
             projectItems.addItem(newProject, allProjects);
 
             dialog.close();
-
+            console.log('dit is een test')
+            console.log('Counter' + counter)
             drawleftpanel.leftPanelProjects(projectItems.loadProjects());
-
-        }, { once: true });
+            
+        });
 
         cancelProject.addEventListener("click", (e) => {
             e.preventDefault();
 
-
+            
             dialog.close();
-        }, { once: true });
+        });
     }
 
     if (whattodo === 'addtodo') {
@@ -93,13 +75,9 @@ export default function todoHandler(whattodo, projectid, projectname) {
         saveTodo.addEventListener("click", function (e) {
             e.preventDefault();
             const todoTitle = document.querySelector("#title").value
-            document.querySelector("#title").value = '';
-
+            
             const todoDescription = document.querySelector("#description").value;
-            document.querySelector("#description").value = '';
-
             const todoDueDate = document.querySelector("#duedate").value;
-
             const todoPriority = document.getElementsByName("priority");
             let todoPrio = '';
             for (let i = 0; i < todoPriority.length; i++) {
@@ -107,7 +85,6 @@ export default function todoHandler(whattodo, projectid, projectname) {
                     todoPrio = todoPriority[i].value
                 }
             }
-
             const todoProject = document.querySelector("#project").value
 
 
@@ -121,12 +98,12 @@ export default function todoHandler(whattodo, projectid, projectname) {
                 todoItems.addItem(newtodo, allItems);
                 dialog.close();
             }
-        }, { once: true });
+        });
 
         cancelTodo.addEventListener("click", (e) => {
             e.preventDefault();
             dialog.close();
 
-        }, { once: true });
+        });
     }
 }
