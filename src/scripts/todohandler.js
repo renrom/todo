@@ -10,7 +10,47 @@ const uuid = require('uuid');
 let projectItems = new AllProjectsItems;
 let todoItems = new AllTodoItems;
 
-export default function todoHandler(whattodo, projectid, projectname) {
+export default function todoHandler(whattodo, projectid, projectname, todoid) {
+
+    if (whattodo === 'upcoming') {
+        
+        let todoItems = new AllTodoItems;
+        let drawrightpanel = new rightPanel;
+        drawrightpanel.rightPanelHeader("List of all ToDo's");
+        drawrightpanel.rightPanelBody(todoItems.loadToDoItems());
+
+
+    }
+    if (whattodo === 'today') {
+        
+        let todoItems = new AllTodoItems;
+        let drawrightpanel = new rightPanel;
+        drawrightpanel.rightPanelHeader("List of all ToDo's Today");
+        drawrightpanel.rightPanelBody(drawrightpanel.rightPanelBodyToday());
+    }
+
+
+
+    if (whattodo === 'deletetodo') {
+        const dialogremove = document.querySelector('#removetodo');
+        const sureYes = document.querySelector('#sureyestodo');
+        const sureNo = document.querySelector('#surenotodo');
+        let drawrightpanel = new rightPanel;
+
+        let allItems = todoItems.loadToDoItems();
+
+        dialogremove.showModal();
+
+        sureYes.addEventListener("click", function (e) {
+            e.preventDefault();
+            todoItems.removeItem(todoid, allItems);
+            drawrightpanel.rightPanelHeader("List of all ToDo's");
+            drawrightpanel.rightPanelBody(todoItems.loadToDoItems());
+            dialogremove.close();
+
+        })
+
+    }
 
     if (whattodo === 'editproject') {
 
@@ -37,8 +77,7 @@ export default function todoHandler(whattodo, projectid, projectname) {
 
         dialog.showModal();
 
-
-        removeProject.addEventListener("click", function (e){
+        removeProject.addEventListener("click", function (e) {
             e.preventDefault();
 
             const sureYes = document.querySelector('#sureyes');
@@ -56,19 +95,19 @@ export default function todoHandler(whattodo, projectid, projectname) {
                     projectItems.removeItem(projectid, allProjects);
                     drawleftpanel.leftPanelProjects(projectItems.loadProjects());
                 }
-                
+
                 dialogremove.close();
                 dialog.close();
-            }, {once: true})
+            }, { once: true })
 
 
             sureNo.addEventListener("click", function (e) {
                 e.preventDefault();
                 dialogremove.close();
                 dialog.close();
-            }, {once: true})
+            }, { once: true })
 
-        }, { once: true});
+        }, { once: true });
 
 
         saveProject.addEventListener("click", function (e) {
@@ -137,6 +176,9 @@ export default function todoHandler(whattodo, projectid, projectname) {
         const allProjects = projectItems.loadProjects();
         let allItems = todoItems.loadToDoItems();
 
+        const uniqeId = uuid.v4();
+
+
         selectproject.innerHTML = '';
         // If there are no ToDo's, then make an empty array
 
@@ -145,7 +187,7 @@ export default function todoHandler(whattodo, projectid, projectname) {
         }
 
         let todoPriority = document.getElementsByName("priority");
-        todoPriority[0].checked = true;
+        todoPriority[1].checked = true;
 
         allProjects.forEach((projects) => {
 
@@ -184,11 +226,12 @@ export default function todoHandler(whattodo, projectid, projectname) {
                 alert('Please add at least a title')
             } else {
 
-                const newtodo = new TodoItem(todoTitle, todoDescription, todoDueDate, todoPrio, "notes", false, todoProject, 1);
+                const newtodo = new TodoItem(todoTitle, todoDescription, todoDueDate, todoPrio, "notes", false, todoProject, uniqeId);
                 todoItems.addItem(newtodo, allItems);
 
                 let drawrightpanel = new rightPanel;
-                drawrightpanel.rightPanelBodyToday();
+                drawrightpanel.rightPanelHeader("List of all ToDo's");
+                drawrightpanel.rightPanelBody(todoItems.loadToDoItems());
                 dialog.close();
             }
         }, { once: true });
