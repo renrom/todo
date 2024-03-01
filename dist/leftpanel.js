@@ -27,9 +27,10 @@ export class leftPanel {
     leftPanelTodo() {
         const leftPanelToDo = document.querySelector('#lc-todopanel-header');
         const leftPanelHeaderText = document.createElement('h1');
+        
         const leftPanelHorizontalRule = document.createElement('hr');
-
-        leftPanelHeaderText.textContent = "ToDo for You"
+        
+        leftPanelHeaderText.textContent = "ToDo for You";
         leftPanelToDo.appendChild(leftPanelHeaderText);
         leftPanelToDo.appendChild(leftPanelHorizontalRule);
     }
@@ -55,9 +56,9 @@ export class leftPanel {
         leftPanelProject.appendChild(lpdiv);
         leftPanelProject.appendChild(leftPanelHorizontalRule);
 
-        //lpbtn.addEventListener('click', function () {
-        //    todoHandler("addproject")
-        //})
+        lpbtn.addEventListener('click', function () {
+            todoHandler("addproject")
+        })
     }
 
 

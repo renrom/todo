@@ -156,7 +156,7 @@ h1 {
 
 hr {
 	padding-left: 10px;
-	margin-right: 30px;
+	margin-right: 20px;
 	border: 2px solid var(--rulercolor);
 	border-radius: 30px;
 }
@@ -201,7 +201,7 @@ table {
 }
 
 .right-container {
-	padding-top: 20px;
+	padding-top: 0px;
 	background-color: var(--backgrountcolor-rightpanel);
 	width: 100%;
 
@@ -270,7 +270,8 @@ table {
 	font-size: 1rem;
 }
 .dialog-header,
-.dialog-project-header 
+.dialog-project-header,
+.dialog-remove-project
  {
 	text-align: center;
 	font-size: 1.4rem;
@@ -297,7 +298,8 @@ table {
 	padding-top: 20px;
 }
 
-.dialog-btn {
+.dialog-btn,
+.removeyesno {
 
 	display: flex;
 	padding-top: 20px;
@@ -307,7 +309,8 @@ table {
 
 #addtodo,
 #addproject,
-#editproject {
+#editproject,
+#removeproject {
 	border-radius: 15px;
 	box-shadow: 10px 10px 15px -10px rgba(0, 0, 0, 0.75);
 	border-color: 000053;
@@ -317,21 +320,30 @@ table {
 	position: absolute;
 }
 
+#removeproject {
+	margin-top: 30%;
+
+}
 #canceltodo,
 #cancelproject,
-#canceleditproject {
+#canceleditproject,
+#sureno
+{
 	background-color: rgb(233, 228, 228);
-	color: lightslategrey
+	color: lightslategrey;
 }
 
 #savetodo,
 #saveproject,
-#saveeditproject {
+#saveeditproject,
+#sureyes {
 	background-color: green;
 	color: lightcyan;
 }
 
-.dialog-btn>button {
+.dialog-btn>button,
+#sureyes,
+#sureno {
 	margin-left: 20px;
 	border: 0;
 	padding: 10px 20px 10px 20px;
@@ -396,12 +408,58 @@ table {
 	justify-content: space-between;
 }
 
-#title {
+#title  {
 	font-size: 1.5rem;
 	border-radius: 10px;
 	background-color: #f0f0e7;
 	border: 0;
 	padding: 10px;
 
+
 }
 
+#headerimage {
+	width: 60px;
+}
+.right-container-header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2rem;	
+	gap: 30px;
+	font-weight: 600;
+	height: 10%;
+	background-color: white;
+	border-bottom: 2px solid #000053;
+	
+}
+
+.right-container-body {
+	margin: 20px 0px 00px 20px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(100px, 300px));
+	gap: 60px;
+}
+
+.todoitem {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	width: 300px;
+	border: 2px solid #000053;
+	padding: 10px;
+	border-radius: 5%;
+	box-shadow: 10px 10px 15px -10px rgba(0, 0, 0, 0.75);	
+	padding: 20px 20px 20px 20px;
+}
+
+.todo-hr {
+	width: 80%;
+	border: 1px solid #000053;
+	align-self: center;
+}
+.todo-header {
+	align-self: center;
+	font-size: 1.5rem;
+	
+}

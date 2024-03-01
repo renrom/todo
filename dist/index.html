@@ -16,22 +16,17 @@
 <body>
     <div class="container">
         <div class="left-container">
-
             <div class="lc-header">
-
                 <img src="" alt="" id="avatarimage">
                 <p id="avatartext"></p>
             </div>
-
             <div id="lc-todopanel">
                 <div id="lc-todopanel-header">
 
                 </div>
                 <div id="lc-todopanel-menu">
                 </div>
-
             </div>
-
             <div id="lc-projectpanel">
                 <div id="lc-projectpanel-header">
                 </div>
@@ -41,8 +36,18 @@
                 </div>
             </div>
         </div>
+
         <div class="right-container">
-            right-container
+
+            <div class="right-container-header">
+                <img src="" alt="" id="headerimage">
+                <p id="headertext"></p>
+            </div>
+
+            <div class="right-container-body">
+
+
+            </div>
         </div>
     </div>
 
@@ -50,16 +55,16 @@
         <p class="dialog-header">New ToDo</p>
         <form action="" class="formlayout">
             <div class="dialog-row">
-                <input type="text" name="title" id="title"  placeholder="Title">
+                <input type="text" name="title" id="title" placeholder="Title">
             </div>
 
             <div class="dialog-row">
 
-                <input type="text" name="description" id="description"  placeholder="Description">
+                <input type="text" name="description" id="description" placeholder="Description">
             </div>
             <div class="dialog-row">
 
-                <input type="date" name="duedate" id="duedate" >
+                <input type="date" name="duedate" id="duedate">
             </div>
 
             <div class="dialog-row">
@@ -93,43 +98,58 @@
     <dialog id="addproject">
 
         <form action="" class="addproject"></form>
-        
+
         <p class="dialog-project-header">New Project</p>
         <form action="" class="formproject">
 
-                <div class="dialog-row">
-                    <input type="text" name="projectname" id="projectname"  placeholder="Projectname">
-                </div>
-                <div class="dialog-row dialog-btn">
-                    <button id="cancelproject">Cancel</button>
-                    <button id="saveproject">Save</button>
-                </div>
-    
+            <div class="dialog-row">
+                <input type="text" name="projectname" id="projectname" placeholder="Projectname">
+            </div>
+            <div class="dialog-row dialog-btn">
+                <button id="cancelproject">Cancel</button>
+                <button id="saveproject">Save</button>
+            </div>
+
         </form>
     </dialog>
 
     <dialog id="editproject">
 
         <form action="" class="editproject"></form>
-        
+
         <p class="dialog-project-header">Edit Project</p>
         <form action="" class="formproject">
 
-                <div class="dialog-row">
-                    <input type="text" name="projectname" id="editprojectname"  placeholder="Projectname">
+            <div class="dialog-row">
+                <input type="text" name="projectname" id="editprojectname" placeholder="Projectname">
+            </div>
+            <div class="dialog-edit-bottom">
+
+                <div class="delete-project">
+
                 </div>
-                <div class="dialog-edit-bottom">
-                    
-                    <div class="delete-project">
-                        
-                    </div>
-                    <div class="dialog-row dialog-btn">
-                        <button id="canceleditproject">Cancel</button>
-                        <button id="saveeditproject">Save</button>
-                    </div>
-    
+                <div class="dialog-row dialog-btn">
+                    <button id="canceleditproject">Cancel</button>
+                    <button id="saveeditproject">Save</button>
                 </div>
-    
+
+            </div>
+
+        </form>
+    </dialog>
+
+    <dialog id="removeproject">
+        <form action="" class="removeproject">
+
+            <p class="dialog-remove-project">Remove Project</p>
+
+            <form action="" class="form-remove-project">
+
+                <div class="removeyesno">
+                    <button id="sureno">No</button>
+                    <button id="sureyes">Yes</button>
+                </div>
+            </form>
         </form>
     </dialog>
 
