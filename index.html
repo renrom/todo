@@ -73,12 +73,15 @@
 
                         <legend>Priority:</legend>
                         <div class="prio">
-                            <label for="low">Low</label>
+                            
                             <input type="radio" name="priority" id="low" value="low">
-                            <label for="medium">Medium</label>
+                            <label for="low">Low</label>
+                            
                             <input type="radio" name="priority" id="medium" value="medium">
-                            <label for="high">High</label>
+                            <label for="medium">Medium</label>
+                            
                             <input type="radio" name="priority" id="high" value="high">
+                            <label for="high">High</label>
                         </div>
                     </div>
                 </fieldset>
@@ -153,7 +156,20 @@
         </form>
     </dialog>
 
+    <dialog id="removetodo">
+        <form action="" class="removetodo">
 
+            <p class="dialog-remove-todo">Remove ToDo</p>
+
+            <form action="" class="form-remove-todo">
+
+                <div class="removeyesnotodo">
+                    <button id="surenotodo">No</button>
+                    <button id="sureyestodo">Yes</button>
+                </div>
+            </form>
+        </form>
+    </dialog>
 
 </body>
 
