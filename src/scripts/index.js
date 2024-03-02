@@ -33,7 +33,7 @@ drawleftpanel.leftPanelProject();
 drawleftpanel.leftPanelTodoMenu();
 drawleftpanel.leftPanelProjects(allProjects);
 
-drawrightpanel.rightPanelHeader("List of all ToDo's");
+drawrightpanel.rightPanelHeader("All ToDo's");
 
 drawrightpanel.rightPanelBody(todoItems.loadToDoItems());
 

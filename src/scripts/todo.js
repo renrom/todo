@@ -41,11 +41,12 @@ export class AllTodoItems {
 
     loadToDoItems() {
 
-        return (JSON.parse(localStorage.getItem("todo")));
+               return (JSON.parse(localStorage.getItem("todo")));
     }
 
 
     checkProjectId(id, alltodo) {
+
         return alltodo.some(e => e.projectid === id);
 
     }

@@ -4,7 +4,7 @@ import { AllProjectsItems, ProjectItem } from './project.js';
 import DeleteIcon from '../assets/delete.svg';
 import EditIcon from '../assets/edit.svg'
 import todoHandler from './todohandler.js';
-
+import MarkDone from '../assets/done.svg';
 
 let todoItems = new AllTodoItems;
 let projectItems = new AllProjectsItems;
@@ -90,6 +90,9 @@ export class rightPanel {
             }
             todoFinished.textContent = textfinished;
 
+            const buttonAll = document.createElement('div');
+            buttonAll.className = 'btn-todo-all';
+
             const buttonDiv = document.createElement('div');
             buttonDiv.className = 'btn-todo-wrapper';
             const todoDelete = document.createElement('img');
@@ -97,19 +100,35 @@ export class rightPanel {
             const todoEdit = document.createElement('img');
             todoEdit.className = 'btn-edit-todo';
 
+            const markDone = document.createElement('img');
+            markDone.className = 'btn-markDone';
+
+            markDone.src = MarkDone;
 
             todoDelete.src = DeleteIcon;
             todoEdit.src = EditIcon;
-
+            
+            markDone.addEventListener("click", function (e) {
+                e.preventDefault();
+                todoHandler("marktododone", undefined, undefined, todo.todoid);
+            })
             todoDelete.addEventListener("click", function (e) {
                 e.preventDefault();
                 todoHandler("deletetodo", undefined, undefined, todo.todoid);
             })
 
+            todoEdit.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    todoHandler("edittodo", undefined, undefined, todo.todoid);
+
+            } )
+
+
             buttonDiv.appendChild(todoDelete);
             buttonDiv.appendChild(todoEdit);
 
-
+            buttonAll.appendChild(buttonDiv);
+            buttonAll.appendChild(markDone);
 
             const todoProject = document.createElement('div')
             todoProject.className = 'todo-project'
@@ -123,7 +142,7 @@ export class rightPanel {
             todoItem.appendChild(todoPriority);
             todoItem.appendChild(todoFinished);
             todoItem.appendChild(todoProject);
-            todoItem.appendChild(buttonDiv);
+            todoItem.appendChild(buttonAll);
 
             placeAllTodo.appendChild(todoItem);
 
